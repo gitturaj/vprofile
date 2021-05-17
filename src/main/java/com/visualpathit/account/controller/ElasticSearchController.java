@@ -1,4 +1,4 @@
-package com.visualpathit.account.controller;
+package com.Gittu_sandyit.account.controller;
 
 import java.io.IOException;
 import java.util.List;
@@ -23,9 +23,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.google.gson.Gson;
-import com.visualpathit.account.model.User;
-import com.visualpathit.account.service.UserService;
-import com.visualpathit.account.utils.ElasticsearchUtil;
+import com.Gittu_sandyit.account.model.User;
+import com.Gittu_sandyit.account.service.UserService;
+import com.Gittu_sandyit.account.utils.ElasticsearchUtil;
 
 import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 
@@ -33,12 +33,12 @@ import static org.elasticsearch.common.xcontent.XContentFactory.jsonBuilder;
 public class ElasticSearchController {
 	@Autowired
     private UserService userService;
-    
+
     @RequestMapping(value="/user/elasticsearch", method=RequestMethod.GET)
     public String insert(final Model model) throws IOException {
     	List<User> users = userService.getList();
     	//contextMapping();
-    	
+
     	/*	for (User user : users) {
     		//IndexRequest indexRequest = new IndexRequest("users","user",  String.valueOf(user.getId()));
     		//indexRequest.source(new Gson().toJson(user));
@@ -66,16 +66,16 @@ public class ElasticSearchController {
     	}
     	model.addAttribute(result);
         return "elasticeSearchRes";
-        		
+
     }
 
     @RequestMapping(value="/rest/users/view/{id}", method=RequestMethod.GET)
     public String  view(@PathVariable final String id,final Model model) {
         GetResponse getResponse = ElasticsearchUtil.trannsportClient().prepareGet("users", "user", id).get();
         System.out.println(getResponse.getSource());
-        
+
         model.addAttribute("res", getResponse.getSource().get("name"));
-       
+
         return "elasticeSearchRes";
     }
     /*@RequestMapping(value = "/get_user_list",  method = RequestMethod.GET)
@@ -85,7 +85,7 @@ public class ElasticSearchController {
     	for (User user : users) {
 	    	GetResponse getResponse = ElasticsearchUtil.trannsportClient().prepareGet("users", "user" ,String.valueOf(user.getId())).get();
 	        System.out.println(getResponse.getSource());
-	        
+
 	        tagList.add(getResponse.getSource());
     	}
         return tagList;
@@ -120,7 +120,7 @@ public class ElasticSearchController {
         model.addAttribute("res", deleteResponse.getResult().toString());
         return "elasticeSearchRes";
     }
-    /*public void contextMapping() throws IOException{    	   	
+    /*public void contextMapping() throws IOException{
 		String json ="{"
 				+ "\"mappings\":{"
 				+ "\"users\":\" {"
@@ -133,6 +133,6 @@ public class ElasticSearchController {
 				+ "}";
 		IndexResponse response = ElasticsearchUtil.trannsportClient().prepareIndex("users", "data")
 								.setSource(json).execute().actionGet();
-		
+
     }*/
 }

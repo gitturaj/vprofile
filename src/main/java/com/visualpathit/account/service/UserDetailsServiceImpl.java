@@ -1,8 +1,8 @@
-package com.visualpathit.account.service;
+package com.Gittu_sandyit.account.service;
 
-import com.visualpathit.account.model.Role;
-import com.visualpathit.account.model.User;
-import com.visualpathit.account.repository.UserRepository;
+import com.Gittu_sandyit.account.model.Role;
+import com.Gittu_sandyit.account.model.User;
+import com.Gittu_sandyit.account.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
@@ -22,7 +22,7 @@ public class UserDetailsServiceImpl implements UserDetailsService {
 
     @Override
     @Transactional(readOnly = true)
-    public UserDetails loadUserByUsername(final String username) 
+    public UserDetails loadUserByUsername(final String username)
     				throws UsernameNotFoundException {
         User user = userRepository.findByUsername(username);
 

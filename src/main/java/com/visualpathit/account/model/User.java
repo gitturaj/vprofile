@@ -1,4 +1,4 @@
-package com.visualpathit.account.model;
+package com.Gittu_sandyit.account.model;
 
 
 import javax.persistence.*;
@@ -38,8 +38,8 @@ public class User implements Serializable {
     private String nationality;
     private String language;
     private String workingExperience;
-    
-    
+
+
     /** the roles field !*/
     private Set<Role> roles;
     /** {@inheritDoc}} !*/
@@ -69,7 +69,7 @@ public class User implements Serializable {
         return password;
     }
     /**
-     * {@inheritDoc}} 
+     * {@inheritDoc}}
      !*/
     public  void setPassword(final String password) {
         this.password = password;
@@ -210,6 +210,6 @@ public class User implements Serializable {
 	public void setWorkingExperience(String workingExperience) {
 		this.workingExperience = workingExperience;
 	}
-	
-	
+
+
 }

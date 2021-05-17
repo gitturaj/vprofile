@@ -1,7 +1,7 @@
-package com.visualpathit.account.validator;
+package com.Gittu_sandyit.account.validator;
 
-import com.visualpathit.account.model.User;
-import com.visualpathit.account.service.UserService;
+import com.Gittu_sandyit.account.model.User;
+import com.Gittu_sandyit.account.service.UserService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

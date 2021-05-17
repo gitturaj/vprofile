@@ -1,4 +1,4 @@
-package com.visualpathit.account.modelTest;
+package com.Gittu_sandyit.account.modelTest;
 
 import junit.framework.Assert;
 
@@ -9,13 +9,13 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.visualpathit.account.model.Role;
-import com.visualpathit.account.model.User;
+import com.Gittu_sandyit.account.model.Role;
+import com.Gittu_sandyit.account.model.User;
 
 /** {@author waheedk} !*/
 public class RoleTest {
 
-	public static final Long EXPECTED_ID = 1L;	
+	public static final Long EXPECTED_ID = 1L;
     public static final String EXPECTED_ROLENAME = "Admin";
     public static final int EXPECTED_SIZE = 1;
     private Role role;
@@ -26,9 +26,9 @@ public class RoleTest {
         user.setUsername("Wahidkhan74");
         user.setPassword("Wahidkhan74");
         user.setUserEmail("XXXXX@gmail.com");
-        
-    	Set<User> users = new HashSet<User>();    	
-    	users.add(user);    	
+
+    	Set<User> users = new HashSet<User>();
+    	users.add(user);
     	role = new Role();
     	role.setId(1L);
         role.setName("Admin");

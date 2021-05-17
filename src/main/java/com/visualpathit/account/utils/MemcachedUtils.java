@@ -1,4 +1,4 @@
-package com.visualpathit.account.utils;
+package com.Gittu_sandyit.account.utils;
 
 import java.net.InetSocketAddress;
 import java.net.SocketAddress;
@@ -7,19 +7,19 @@ import java.util.concurrent.Future;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.visualpathit.account.beans.Components;
-import com.visualpathit.account.model.User;
+import com.Gittu_sandyit.account.beans.Components;
+import com.Gittu_sandyit.account.model.User;
 
 import net.spy.memcached.MemcachedClient;
 @Service
 public class MemcachedUtils {
-	
+
 	private static Components object;
     @Autowired
     public void setComponents(Components object){
     	MemcachedUtils.object = object;
     }
-    public static String memcachedSetData(User user,String key){    	
+    public static String memcachedSetData(User user,String key){
     	String Result = "";
     	int expireTime =  900;
     	try{
@@ -27,13 +27,13 @@ public class MemcachedUtils {
     			System.out.println("--------------------------------------------");
     			System.out.println("Client is ::"+ mactiveClient.getStats());
     			System.out.println("--------------------------------------------");
-	            Future future = mactiveClient.set(key,expireTime, user);	        	         
+	            Future future = mactiveClient.set(key,expireTime, user);
 	     	    System.out.println("set status:" + future.get());
 	     	    Result =" Data is From DB and Data Inserted In Cache !!";
-	     	    mactiveClient.shutdown();             
-	           
-    		
-    	} catch (Exception e) {    		
+	     	    mactiveClient.shutdown();
+
+
+    	} catch (Exception e) {
     		System.out.println( e.getMessage() );
 		}
     	return Result;
@@ -50,28 +50,28 @@ public class MemcachedUtils {
 	     	    System.out.println("user value in cache - " + mclient.get(key));
 	     	    Result =" Data Retrieval From Cache !!";
 	     	    System.out.println(Result);
-	     	    mclient.shutdown();               
-	           
-    	} catch (Exception e) {    		
+	     	    mclient.shutdown();
+
+    	} catch (Exception e) {
     		System.out.println( e.getMessage() );
 		}
     	return userData;
     }
-    public static MemcachedClient memcachedConnection(){ 
+    public static MemcachedClient memcachedConnection(){
     	MemcachedClient mcconn = null;
     	boolean active = true;
     	String key="pid";
     	String port = "";
     	String activeHost =object.getActiveHost();
-    	String activePort =object.getActivePort();    	
-    	try{   		
+    	String activePort =object.getActivePort();
+    	try{
     		if(!activeHost.isEmpty() && !activePort.isEmpty() && active){
 	    		mcconn = new MemcachedClient(new InetSocketAddress(activeHost,Integer.parseInt(activePort)));
 	    		for(SocketAddress innerKey:mcconn.getStats().keySet()){
 	    			System.out.println("Connection  SocketAddress ::" + innerKey);
 	    			//System.out.println("Connection port ::" + mcconn.getStats().get(innerKey).get(key));
-	    			port = mcconn.getStats().get(innerKey).get(key);	    			
-	    		} 
+	    			port = mcconn.getStats().get(innerKey).get(key);
+	    		}
 	    		if(port == null){
     				System.out.println("Port::"+ port);
     				mcconn.shutdown();
@@ -101,7 +101,7 @@ public class MemcachedUtils {
     		System.out.println( e.getMessage() );
 		}
     	return mcconn;
-    }   
+    }
     public static MemcachedClient standByMemcachedConn(){
     	MemcachedClient mcconn = null;
     	String port = "";
@@ -112,7 +112,7 @@ public class MemcachedUtils {
     	if(!standByHost.isEmpty() && !standByPort.isEmpty() && mcconn == null && port.isEmpty()){
     		mcconn = new MemcachedClient(new InetSocketAddress(standByHost,Integer.parseInt(standByPort)));
     		for(SocketAddress innerKey:mcconn.getStats().keySet()){
-    			port = mcconn.getStats().get(innerKey).get(key);    		
+    			port = mcconn.getStats().get(innerKey).get(key);
     		}
     		if(!port.isEmpty()){
 	    		System.out.println("--------------------------------------------");
@@ -130,5 +130,5 @@ public class MemcachedUtils {
     		System.out.println( e.getMessage() );
 		}
     	return mcconn;
-    }    
+    }
 }

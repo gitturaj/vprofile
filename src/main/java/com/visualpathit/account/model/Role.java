@@ -1,4 +1,4 @@
-package com.visualpathit.account.model;
+package com.Gittu_sandyit.account.model;
 
 import javax.persistence.*;
 import java.util.Set;
@@ -36,7 +36,7 @@ public class Role {
         this.name = name;
     }
     /**
-     * {@inheritDoc}} 
+     * {@inheritDoc}}
      !*/
     @ManyToMany(fetch = FetchType.EAGER, mappedBy = "roles",cascade = CascadeType.ALL)
     /**
@@ -46,7 +46,7 @@ public class Role {
         return users;
     }
     /**
-     * {@inheritDoc}} 
+     * {@inheritDoc}}
      !*/
     public final void setUsers(Set<User> users) {
         this.users = users;

@@ -37,9 +37,9 @@
 	                        	 <li><a href="${contextPath}/registration">SIGN UP</a></li>
 	                       	 	</ul>
                             </div>
-                            
+
                          </div>
-                         
+
                     </div>
                 </div>
             </div>
@@ -56,7 +56,7 @@
 <div>
 <blockquote><p>
      <h2 align="center" style="font-family: Verdana,sans-serif;color:#1C3B47;">Keep Learning ..</h2>
-     <h3 align="center" style="font-family: Verdana,sans-serif;color:#1C3B47;">Learning is a Treasure that will follow it's Owner Everywhere..</h3> 
+     <h3 align="center" style="font-family: Verdana,sans-serif;color:#1C3B47;">Learning is a Treasure that will follow it's Owner Everywhere..</h3>
 </blockquote>
 <!-- Page content -->
 <div class="w3-content w3-padding" style="max-width:1564px">
@@ -69,8 +69,8 @@
   <div class="w3-row-padding">
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
-        <img src="${contextPath}/resources/Images/technologies/Ansible_logo.png" alt="DevOps" style="width:150px;height:150px">      
-      </div>      
+        <img src="${contextPath}/resources/Images/technologies/Ansible_logo.png" alt="DevOps" style="width:150px;height:150px">
+      </div>
     </div>
     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">
@@ -116,14 +116,14 @@
   <div class="container w3-padding-32" id="about">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" align="center">ABOUT</h3>
     <div class="w3-content" style="max-width:700px">
-	    <p style="text-align:justify;">VisualPath is an IT Educational Institute.Established in 2001,and Institute offers world class quality of education and wide range of courses.VisualPath Institute has a dedicated placement team to help students get job placement in various IT job roles with major companies.
+	    <p style="text-align:justify;">Gittu_sandy is an IT Educational Institute.Established in 2001,and Institute offers world class quality of education and wide range of courses.Gittu_sandy Institute has a dedicated placement team to help students get job placement in various IT job roles with major companies.
 	    </p>
-	    <p><strong>Address:</strong>  Flat no: 205, 2nd Floor,NILGIRI Block,Aditya Encalve,Ameerpet, Hyderabad-16</p> 
+	    <p><strong>Address:</strong>  Flat no: 205, 2nd Floor,NILGIRI Block,Aditya Encalve,Ameerpet, Hyderabad-16</p>
 	    <p><strong>Ph No: </strong>  +91-9704455959,9618245689</p>
-		<p><strong>E-Mail ID :</strong>  visualpath999@gmail.com</p>
+		<p><strong>E-Mail ID :</strong>  Gittu_sandy999@gmail.com</p>
   	</div>
    </div>
-  
+
   <!-- Contact Section -->
   <div class="container w3-padding-32" id="contact">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-16" align="center">CONTACT</h3>
@@ -138,14 +138,14 @@
       </button>
     </form>
   </div>
-   
+
 <!-- End page content -->
 </div>
 
 
 <!-- Footer -->
 <footer class="w3-center  w3-padding-16" style="background-color:#1C3B47 ">
-  <p style="color:#FFFFFF ">Copyright @2017 <a href="#"  target="_blank" class="w3-hover-text-green"> visualpathit.com</a></p>
+  <p style="color:#FFFFFF ">Copyright @2017 <a href="#"  target="_blank" class="w3-hover-text-green"> Gittu_sandyit.com</a></p>
 </footer>
 
 

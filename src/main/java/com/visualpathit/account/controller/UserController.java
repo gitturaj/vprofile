@@ -1,11 +1,11 @@
-package com.visualpathit.account.controller;
+package com.Gittu_sandyit.account.controller;
 
-import com.visualpathit.account.model.User;
-import com.visualpathit.account.service.ProducerService;
-import com.visualpathit.account.service.SecurityService;
-import com.visualpathit.account.service.UserService;
-import com.visualpathit.account.utils.MemcachedUtils;
-import com.visualpathit.account.validator.UserValidator;
+import com.Gittu_sandyit.account.model.User;
+import com.Gittu_sandyit.account.service.ProducerService;
+import com.Gittu_sandyit.account.service.SecurityService;
+import com.Gittu_sandyit.account.service.UserService;
+import com.Gittu_sandyit.account.utils.MemcachedUtils;
+import com.Gittu_sandyit.account.validator.UserValidator;
 
 import java.util.List;
 import java.util.UUID;
@@ -29,10 +29,10 @@ public class UserController {
 
     @Autowired
     private UserValidator userValidator;
-    
+
     @Autowired
     private ProducerService producerService;
-    
+
     /** {@inheritDoc} */
     @RequestMapping(value = "/registration", method = RequestMethod.GET)
     public final String registration(final Model model) {
@@ -41,9 +41,9 @@ public class UserController {
       }
     /** {@inheritDoc} */
     @RequestMapping(value = "/registration", method = RequestMethod.POST)
-    public final String registration(final @ModelAttribute("userForm") User userForm, 
+    public final String registration(final @ModelAttribute("userForm") User userForm,
     	final BindingResult bindingResult, final Model model) {
-    	
+
         userValidator.validate(userForm, bindingResult);
         if (bindingResult.hasErrors()) {
             return "registration";
@@ -79,21 +79,21 @@ public class UserController {
     }
     @RequestMapping(value = "/users", method = RequestMethod.GET)
     public String getAllUsers(Model model)
-    {	
-   
+    {
+
         List<User> users = userService.getList();
         //JSONObject jsonObject
         System.out.println("All User Data:::" + users);
         model.addAttribute("users", users);
         return "userList";
     }
-    
+
     @RequestMapping(value = "/users/{id}", method = RequestMethod.GET)
     public String getOneUser(@PathVariable(value="id") String id,Model model)
-    {	
+    {
     	String Result ="";
     	try{
-    		if( id != null && MemcachedUtils.memcachedGetData(id)!= null){    			
+    		if( id != null && MemcachedUtils.memcachedGetData(id)!= null){
     			User userData =  MemcachedUtils.memcachedGetData(id);
     			Result ="Data is From Cache";
     			System.out.println("--------------------------------------------");
@@ -104,7 +104,7 @@ public class UserController {
     			model.addAttribute("Result", Result);
     		}
     		else{
-	    		User user = userService.findById(Long.parseLong(id)); 
+	    		User user = userService.findById(Long.parseLong(id));
 	    		Result = MemcachedUtils.memcachedSetData(user,id);
 	    		if(Result == null ){
 	    			Result ="Memcached Connection Failure !!";
@@ -112,20 +112,20 @@ public class UserController {
 	    		System.out.println("--------------------------------------------");
     			System.out.println("Data is From Database");
     			System.out.println("--------------------------------------------");
-		        System.out.println("Result ::: "+ Result);	       
+		        System.out.println("Result ::: "+ Result);
 		        model.addAttribute("user", user);
 		        model.addAttribute("Result", Result);
     		}
-    	} catch (Exception e) {    		
+    	} catch (Exception e) {
     		System.out.println( e.getMessage() );
 		}
         return "user";
     }
-    
+
     /** {@inheritDoc} */
     @RequestMapping(value = { "/user/{username}"} , method = RequestMethod.GET)
     public final String userUpdate(@PathVariable(value="username") String username,final Model model) {
-    	User user = userService.findByUsername(username); 
+    	User user = userService.findByUsername(username);
     	System.out.println("User Data:::" + user);
     	model.addAttribute("user", user);
     	return "userUpdate";
@@ -149,26 +149,26 @@ public class UserController {
     	user.setPrimaryOccupation(userForm.getPrimaryOccupation());
     	user.setSecondaryOccupation(userForm.getSecondaryOccupation());
     	user.setSkills(userForm.getSkills());
-    	user.setWorkingExperience(userForm.getWorkingExperience());    	
-    	userService.save(user); 
+    	user.setWorkingExperience(userForm.getWorkingExperience());
+    	userService.save(user);
     	/*model.addAttribute("user", user);*/
     	return "welcome";
     }
-    
+
     @RequestMapping(value={"/user/rabbit"}, method={RequestMethod.GET})
-    public String rabbitmqSetUp() { 
+    public String rabbitmqSetUp() {
     	System.out.println("Rabbit mq method is callled!!!");
       for (int i = 0; i < 20; i++) {
         producerService.produceMessage(generateString());
       }
       return "rabbitmq";
     }
-    
+
     private static String generateString() {
       String uuid = UUID.randomUUID().toString();
       return "uuid = " + uuid;
     }
-    
 
-    
+
+
 }

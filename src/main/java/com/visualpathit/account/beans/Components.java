@@ -1,11 +1,11 @@
-package com.visualpathit.account.beans;
+package com.Gittu_sandyit.account.beans;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
 @Component
 public class Components {
-	
+
 	@Value("${memcached.active.host}")
     private String activeHost;
 	@Value("${memcached.active.port}")
@@ -14,7 +14,7 @@ public class Components {
     private String standByHost;
 	@Value("${memcached.standBy.port}")
     private String standByPort;
-	
+
 	@Value("${rabbitmq.address}")
     private String rabbitMqHost;
 	@Value("${rabbitmq.port}")
@@ -23,7 +23,7 @@ public class Components {
     private String rabbitMqUser;
 	@Value("${rabbitmq.password}")
     private String rabbitMqPassword;
-	
+
 	@Value("${elasticsearch.host}")
     private String elasticsearchHost;
 	@Value("${elasticsearch.port}")
@@ -32,8 +32,8 @@ public class Components {
     private String elasticsearchCluster;
 	@Value("${elasticsearch.node}")
     private String elasticsearchNode;
-	
-	
+
+
 	public String getActiveHost() {
 		return activeHost;
 	}
@@ -106,6 +106,6 @@ public class Components {
 	public void setElasticsearchNode(String elasticsearchNode) {
 		this.elasticsearchNode = elasticsearchNode;
 	}
-	
-	
+
+
 }

@@ -1,4 +1,4 @@
-package com.visualpathit.account.controllerTest;
+package com.Gittu_sandyit.account.controllerTest;
 
 import static org.junit.Assert.assertEquals;
 

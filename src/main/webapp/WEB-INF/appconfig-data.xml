@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-	
+
 	<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:jpa="http://www.springframework.org/schema/data/jpa"
        xmlns:tx="http://www.springframework.org/schema/tx"
@@ -23,7 +23,7 @@
     <!-- Configure the entity manager factory bean -->
     <bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
         <property name="dataSource" ref="dataSource"/>
-        <property name="packagesToScan" value="com.visualpathit.account.model"/>
+        <property name="packagesToScan" value="com.Gittu_sandyit.account.model"/>
         <property name="jpaVendorAdapter">
             <bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter"/>
         </property>
@@ -49,6 +49,5 @@
       repository interfaces
     -->
 
-    <jpa:repositories base-package="com.visualpathit.account.repository"/>
+    <jpa:repositories base-package="com.Gittu_sandyit.account.repository"/>
     </beans>
-

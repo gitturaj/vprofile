@@ -1,4 +1,4 @@
-package com.visualpathit.account.controllerTest;
+package com.Gittu_sandyit.account.controllerTest;
 
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
@@ -14,24 +14,24 @@ import org.mockito.MockitoAnnotations;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 
-import com.visualpathit.account.controller.UserController;
-import com.visualpathit.account.model.User;
-import com.visualpathit.account.service.UserService;
-import com.visualpathit.account.setup.StandaloneMvcTestViewResolver;
+import com.Gittu_sandyit.account.controller.UserController;
+import com.Gittu_sandyit.account.model.User;
+import com.Gittu_sandyit.account.service.UserService;
+import com.Gittu_sandyit.account.setup.StandaloneMvcTestViewResolver;
 
 
 public class UserControllerTest {
-	
+
 	@Mock
 	private UserService controllerSer;
 	@InjectMocks
 	private UserController controller;
 	private MockMvc mockMvc;
-	
+
 	@Before
 	public void setup(){
 		MockitoAnnotations.initMocks(this);
-		
+
 		/*InternalResourceViewResolver viewResolver = new InternalResourceViewResolver();
         viewResolver.setPrefix("/WEB-INF/views/");
         viewResolver.setSuffix(".jsp");
@@ -39,7 +39,7 @@ public class UserControllerTest {
 		mockMvc = MockMvcBuilders.standaloneSetup(controller)
 				  .setViewResolvers(new StandaloneMvcTestViewResolver()).build();
 	}
-	
+
 	@Test
 	public void registrationTestforHappyFlow() throws Exception{
 		User user = new User();
@@ -47,7 +47,7 @@ public class UserControllerTest {
         .andExpect(status().isOk())
         .andExpect(view().name("registration"))
         .andExpect(forwardedUrl("registration"));
-		
+
 	}
 	@Test
 	public void registrationTestforNullValueHappyFlow() throws Exception{
@@ -55,7 +55,7 @@ public class UserControllerTest {
         .andExpect(status().isOk())
         .andExpect(view().name("registration"))
         .andExpect(forwardedUrl("registration"));
-		
+
 	}
 	/*@Test
 	public void registrationTestforPostValueHappyFlow() throws Exception{
@@ -66,11 +66,11 @@ public class UserControllerTest {
 		.thenThrow(bindingResult.hasErrors());
 		mockMvc.perform(post("/registration").contentType(MediaType.APPLICATION_FORM_URLENCODED)
                 .param("userForm","userForm"))
-		
+
         .andExpect(status().isOk());
         //.andExpect(view().name("redirect:/welcome"))
         //.andExpect(forwardedUrl("redirect:/welcome"));
-		
+
 	}*/
 	@Test
 	public void loginTestHappyFlow() throws Exception{
@@ -79,7 +79,7 @@ public class UserControllerTest {
         .andExpect(status().isOk())
         .andExpect(view().name("login"))
         .andExpect(forwardedUrl("login"));
-		
+
 	}
 	@Test
 	public void welcomeTestHappyFlow() throws Exception{
@@ -87,7 +87,7 @@ public class UserControllerTest {
         .andExpect(status().isOk())
         .andExpect(view().name("welcome"))
         .andExpect(forwardedUrl("welcome"));
-		
+
 	}
 	@Test
 	public void welcomeAfterDirectLoginTestHappyFlow() throws Exception{
@@ -95,7 +95,7 @@ public class UserControllerTest {
         .andExpect(status().isOk())
         .andExpect(view().name("welcome"))
         .andExpect(forwardedUrl("welcome"));
-		
+
 	}
 	@Test
 	public void indexTestHappyFlow() throws Exception{
@@ -103,7 +103,7 @@ public class UserControllerTest {
         .andExpect(status().isOk())
         .andExpect(view().name("index_home"))
         .andExpect(forwardedUrl("index_home"));
-		
+
 	}
 
 }

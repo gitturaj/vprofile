@@ -1,4 +1,4 @@
-package com.visualpathit.account.service;
+package com.Gittu_sandyit.account.service;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -38,7 +38,7 @@ public class SecurityServiceImpl implements SecurityService {
     @Override
     public void autologin(final String username, final String password) {
         UserDetails userDetails = userDetailsService.loadUserByUsername(username);
-        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = 
+        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken =
         new UsernamePasswordAuthenticationToken(userDetails, password, userDetails.getAuthorities());
 
         authenticationManager.authenticate(usernamePasswordAuthenticationToken);

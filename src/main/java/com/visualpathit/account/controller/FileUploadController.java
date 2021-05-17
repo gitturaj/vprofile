@@ -1,4 +1,4 @@
-package com.visualpathit.account.controller;
+package com.Gittu_sandyit.account.controller;
 
 import java.io.BufferedOutputStream;
 import java.io.File;
@@ -16,8 +16,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.visualpathit.account.model.User;
-import com.visualpathit.account.service.UserService;
+import com.Gittu_sandyit.account.model.User;
+import com.Gittu_sandyit.account.service.UserService;
 
 @Controller
 public class FileUploadController {
@@ -37,7 +37,7 @@ public class FileUploadController {
 	public @ResponseBody
 	String uploadFileHandler(@RequestParam("name") String name,@RequestParam("userName") String userName,
 			@RequestParam("file") MultipartFile file) {
-		
+
 		System.out.println("Called the upload file :::" );
 		if (!file.isEmpty()) {
 			try {
@@ -53,12 +53,12 @@ public class FileUploadController {
 				// Create the file on server
 				File serverFile = new File(dir.getAbsolutePath()
 						+ File.separator + name+".png");
-				//image saving 
+				//image saving
 				User user = userService.findByUsername(userName);
 				user.setProfileImg(name +".png");
 				user.setProfileImgPath(serverFile.getAbsolutePath());
 				userService.save(user);
-				
+
 				BufferedOutputStream stream = new BufferedOutputStream(
 						new FileOutputStream(serverFile));
 				stream.write(bytes);

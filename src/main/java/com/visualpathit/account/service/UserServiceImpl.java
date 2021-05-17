@@ -1,8 +1,8 @@
-package com.visualpathit.account.service;
+package com.Gittu_sandyit.account.service;
 
-import com.visualpathit.account.model.User;
-import com.visualpathit.account.repository.RoleRepository;
-import com.visualpathit.account.repository.UserRepository;
+import com.Gittu_sandyit.account.model.User;
+import com.Gittu_sandyit.account.repository.RoleRepository;
+import com.Gittu_sandyit.account.repository.UserRepository;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -35,7 +35,7 @@ public class UserServiceImpl implements UserService {
     public User findByUsername(final String username) {
         return userRepository.findByUsername(username);
     }
-    
+
     @Override
     public List<User> getList() {
     	return userRepository.findAll();

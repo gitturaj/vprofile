@@ -1,4 +1,4 @@
-package com.visualpathit.account.utils;
+package com.Gittu_sandyit.account.utils;
 
 import java.net.InetSocketAddress;
 
@@ -9,27 +9,27 @@ import org.elasticsearch.transport.client.PreBuiltTransportClient;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.visualpathit.account.beans.Components;
+import com.Gittu_sandyit.account.beans.Components;
 @Service
 public class ElasticsearchUtil {
-	
+
 	private static Components object;
     @Autowired
     public void setComponents(Components object){
-    	ElasticsearchUtil.object = object;    	
-    	
+    	ElasticsearchUtil.object = object;
+
     }
     public static TransportClient trannsportClient() {
     	System.out.println(" elasticsearch client");
     	String elasticsearchHost =object.getElasticsearchHost();
-    	String elasticsearchPort =object.getElasticsearchPort(); 
+    	String elasticsearchPort =object.getElasticsearchPort();
     	String elasticsearchCluster =object.getElasticsearchCluster();
     	String elasticsearchNode =object.getElasticsearchNode();
     	System.out.println(" elasticsearchHost ........"+ elasticsearchHost);
     	System.out.println(" elasticsearchHost ........"+ elasticsearchPort);
     	TransportClient client = null;
-    	try {    	
-    	Settings settings = Settings.builder()    			
+    	try {
+    	Settings settings = Settings.builder()
     			.put("cluster.name",elasticsearchCluster)
     			.put("node.name",elasticsearchNode)
     			.build();
@@ -38,7 +38,7 @@ public class ElasticsearchUtil {
                 new InetSocketTransportAddress(
                 		new InetSocketAddress(elasticsearchHost, Integer.parseInt(elasticsearchPort))));
 
-        
+
     	}
     	catch (Exception e) {
 			e.printStackTrace();
